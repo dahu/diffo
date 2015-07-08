@@ -22,15 +22,15 @@ nnoremap <plug>diffo_close  :call diffo#close()<cr>
 nnoremap <plug>diffo_update :diffupdate<cr>
 
 if !hasmapto('<plug>diffo_open')
-  nmap <unique><silent> <leader>do <plug>diffo_open
+  silent! nmap <unique><silent> <leader>do <plug>diffo_open
 endif
 
 if !hasmapto('<plug>diffo_close')
-  nmap <unique><silent> <leader>dc <plug>diffo_close
+  silent! nmap <unique><silent> <leader>dc <plug>diffo_close
 endif
 
 if !hasmapto('<plug>diffo_update')
-  nmap <unique><silent> <leader>du <plug>diffo_update
+  silent! nmap <unique><silent> <leader>du <plug>diffo_update
 endif
 
 " Commands: {{{1
