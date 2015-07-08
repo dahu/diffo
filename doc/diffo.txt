@@ -1,0 +1,32 @@
+*diffo.txt*	Show unsaved differences (DiffOrig).
+
+
+			VIM REFERENCE MANUAL	by Barry Arthur
+
+
+Help on using diffo                                                    *diffo*
+
+1. Introduction				|diffo-intro|
+
+==============================================================================
+ 1. INTRODUCTION                                                  *diffo-intro*
+
+Diffo extends the builtin |DiffOrig| functionality by allowing you to close the
+diff buffer from either window.
+
+Two user-configurable maps are provided to start and stop DiffOrig:
+* <plug>diffo-open   mapped to <leader>do by default
+* <plug>diffo-close  mapped to <leader>dc by default
+
+To override these, provide maps like this in your |$MYVIMRC|:
+>
+  nmap <leader>x <plug>diffo_open
+  nmap <leader>X <plug>diffo_close
+<
+
+The :DiffOrig command is a toggle, opening a diff session in a normal window and
+closing one in a DiffOrig window.
+
+
+Template From: https://github.com/dahu/Area-41/
+ vim:tw=78:ts=8:ft=help:norl:
