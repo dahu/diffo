@@ -17,15 +17,20 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 " Maps: {{{1
-nnoremap <Plug>difforig_open  :call diffo#open()
-nnoremap <Plug>difforig_close :call diffo#close()
+nnoremap <plug>diffo_open   :call diffo#open()<cr>
+nnoremap <plug>diffo_close  :call diffo#close()<cr>
+nnoremap <plug>diffo_update :diffupdate<cr>
 
-if !hasmapto('<Plug>diffo_open')
-  nmap <unique><silent> <leader>do <Plug>diffo_open
+if !hasmapto('<plug>diffo_open')
+  nmap <unique><silent> <leader>do <plug>diffo_open
 endif
 
-if !hasmapto('<Plug>diffo_close')
-  nmap <unique><silent> <leader>dc <Plug>diffo_close
+if !hasmapto('<plug>diffo_close')
+  nmap <unique><silent> <leader>dc <plug>diffo_close
+endif
+
+if !hasmapto('<plug>diffo_update')
+  nmap <unique><silent> <leader>du <plug>diffo_update
 endif
 
 " Commands: {{{1

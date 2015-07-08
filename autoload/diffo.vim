@@ -24,38 +24,53 @@ function! diffo#info()
   let info.version = 1.0
   let info.description = 'Library to support diffing the current buffer with the last saved version.'
   let info.dependencies = []
-  " let info.dependencies = [{'name': 'plugin1', 'version': 1.0}]
   return info
 endfunction
 
-" View changes made to a buffer since it was last saved
 function! diffo#open()
+  let filetype = &filetype
   let t:diffline = line('.')
+  diffthis
+  augroup diffo
+    au!
+    au InsertLeave <buffer> diffupdate
+  augroup END
   vertical new
-  set buftype=nofile
+  augroup diffo
+    au InsertLeave <buffer> diffupdate
+  augroup END
+  command -buffer -nargs=0 DiffOrig call diffo#close()
   let w:difforig = bufnr('%')
   let t:difforig = winnr()
-  " 0read prevents a blank line at the top of the buffer
-  " ++edit retains current option values for read operation
-  " # is the alternate buffer (:help :_#)
-  command -buffer -nargs=0 DiffOrig call diffo#close()
-  0read ++edit #
+  read ++edit #
+  0 delete _
   diffthis
+  setlocal buftype=nofile
+  setlocal bufhidden=wipe
+  setlocal noswapfile
+  setlocal nobuflisted
+  setlocal readonly
+  exe 'setlocal filetype=' . filetype
   exe 'normal! ' . t:diffline . 'G'
-  wincmd p
-  diffthis
   wincmd p
 endfunction
 
 function! diffo#close()
-  exe t:difforig . ' wincmd w'
-  exe 'buffer ' . w:difforig
-  unlet w:difforig
-  bdelete
-  diffoff
-  exe 'normal! ' . t:diffline . 'G'
-  unlet t:diffline
-  unlet t:difforig
+  augroup diffo
+    au!
+  augroup END
+  if exists('t:difforig')
+    exe t:difforig . ' wincmd w'
+    if exists('w:difforig')
+      exe 'buffer ' . w:difforig
+      unlet w:difforig
+      bwipe
+    endif
+    diffoff!
+    exe 'normal! ' . t:diffline . 'G'
+    unlet t:diffline
+    unlet t:difforig
+  endif
 endfunction
 
 " Teardown:{{{1

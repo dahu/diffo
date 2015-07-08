@@ -6,22 +6,19 @@
 
 Help on using diffo                                                    *diffo*
 
-1. Introduction				|diffo-intro|
-
-==============================================================================
- 1. INTRODUCTION                                                  *diffo-intro*
-
 Diffo extends the builtin |DiffOrig| functionality by allowing you to close the
 diff buffer from either window.
 
-Two user-configurable maps are provided to start and stop DiffOrig:
-* <plug>diffo-open   mapped to <leader>do by default
-* <plug>diffo-close  mapped to <leader>dc by default
+User-configurable maps are provided to start and stop and update DiffOrig:
+* <plug>diffo_open   mapped to <leader>do by default
+* <plug>diffo_close  mapped to <leader>dc by default
+* <plug>diffo_close  mapped to <leader>du by default
 
 To override these, provide maps like this in your |$MYVIMRC|:
 >
   nmap <leader>x <plug>diffo_open
-  nmap <leader>X <plug>diffo_close
+  nmap <leader>y <plug>diffo_close
+  nmap <leader>z <plug>diffo_update
 <
 
 The :DiffOrig command is a toggle, opening a diff session in a normal window and
