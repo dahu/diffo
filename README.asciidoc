@@ -1,0 +1,27 @@
+== Diffo
+
+__DiffOrig__
+
+TIP: If you like diffo and want to share the W00t!, I'm grateful for
+https://www.gittip.com/bairuidahu/[tips] or
+http://of-vim-and-vigor.blogspot.com/[beverages].
+
+=== Usage
+
+Diffo extends the builtin +DiffOrig+ functionality by allowing you to
+close the diff buffer from either window.
+
+.User-configurable maps are provided to start and stop and update DiffOrig:
+
+* +<plug>diffo_open+   mapped to +<leader>do+ by default
+* +<plug>diffo_close+  mapped to +<leader>dc+ by default
+* +<plug>diffo_close+  mapped to +<leader>du+ by default
+
+.To override these, provide maps like this in your |$MYVIMRC|:
+
+  nmap <leader>x <plug>diffo_open
+  nmap <leader>y <plug>diffo_close
+  nmap <leader>z <plug>diffo_update
+
+The +:DiffOrig+ command is a toggle, opening a diff session in a normal
+window and closing one in a DiffOrig window.
