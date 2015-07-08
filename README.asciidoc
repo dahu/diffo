@@ -15,7 +15,7 @@ close the diff buffer from either window.
 
 * +<plug>diffo_open+   mapped to +<leader>do+ by default
 * +<plug>diffo_close+  mapped to +<leader>dc+ by default
-* +<plug>diffo_close+  mapped to +<leader>du+ by default
+* +<plug>diffo_update+  mapped to +<leader>du+ by default
 
 .To override these, provide maps like this in your |$MYVIMRC|:
 
