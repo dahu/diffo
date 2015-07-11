@@ -24,6 +24,10 @@ To override these, provide maps like this in your |$MYVIMRC|:
 The :DiffOrig command is a toggle, opening a diff session in a normal window and
 closing one in a DiffOrig window.
 
+NOTE: For :DiffOrig to close the DiffOrig window, your cursor needs to
+be in that window first. You can identify it by its buffer name as
+[Scratch].
+
 
 Template From: https://github.com/dahu/Area-41/
  vim:tw=78:ts=8:ft=help:norl:

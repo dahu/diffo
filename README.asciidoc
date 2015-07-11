@@ -13,8 +13,8 @@ close the diff buffer from either window.
 
 .User-configurable maps are provided to start and stop and update DiffOrig:
 
-* +<plug>diffo_open+   mapped to +<leader>do+ by default
-* +<plug>diffo_close+  mapped to +<leader>dc+ by default
+* +<plug>diffo_open+    mapped to +<leader>do+ by default
+* +<plug>diffo_close+   mapped to +<leader>dc+ by default
 * +<plug>diffo_update+  mapped to +<leader>du+ by default
 
 .To override these, provide maps like this in your |$MYVIMRC|:
@@ -25,3 +25,7 @@ close the diff buffer from either window.
 
 The +:DiffOrig+ command is a toggle, opening a diff session in a normal
 window and closing one in a DiffOrig window.
+
+NOTE: For +:DiffOrig+ to close the DiffOrig window, your cursor needs to
+be in that window first. You can identify it by its buffer name as
+[Scratch].
