@@ -34,7 +34,9 @@ if !hasmapto('<plug>diffo_update')
 endif
 
 " Commands: {{{1
-command -nargs=0 DiffOrig call diffo#open()
+command -nargs=0 DiffOrig    call diffo#open()
+command -nargs=0 DiffOff     call diffo#close()
+command -nargs=0 DiffUpdate  diffupdate
 
 " Teardown: {{{1
 " reset &cpo back to users setting
